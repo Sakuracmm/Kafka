@@ -1,0 +1,44 @@
+package com.ll.stream;
+
+import org.apache.kafka.streams.processor.Processor;
+import org.apache.kafka.streams.processor.ProcessorContext;
+
+/**
+ * @author LL
+ * @date 2019/8/28
+ * @description 数据清洗类
+ */
+public class LogProcessor implements Processor<byte[],byte[]> {
+
+    private ProcessorContext context;
+
+    @Override
+    public void init(ProcessorContext processorContext) {
+        context = processorContext;
+
+    }
+
+    @Override
+    public void process(byte[] bytes, byte[] bytes2) {
+        //获取到一行数据
+        String line = new String(bytes2);
+
+        //取出">>>"
+        line = line.replaceAll(">>>","");
+
+        //重新转成byte数组
+        bytes2 = line.getBytes();
+
+        context.forward(bytes,bytes2);
+    }
+
+    @Override
+    public void punctuate(long l) {
+
+    }
+
+    @Override
+    public void close() {
+
+    }
+}
