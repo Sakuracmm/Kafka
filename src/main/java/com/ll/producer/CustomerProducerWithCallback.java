@@ -10,6 +10,7 @@ import org.apache.kafka.clients.producer.*;
  * @description kafka 生产者
  */
 public class CustomerProducerWithCallback {
+
     public static void main(String[] args) {
         //配置信息
         Properties props = new Properties();
