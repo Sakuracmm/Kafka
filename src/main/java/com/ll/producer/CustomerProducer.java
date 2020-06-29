@@ -16,6 +16,7 @@ import org.apache.kafka.common.record.Record;
  * @description kafka 生产者
  */
 public class CustomerProducer {
+
     public static void main(String[] args) {
         //配置信息
         Properties props = new Properties();
