@@ -12,6 +12,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
  * @description kafka 生产者
  */
 public class CustomerProducerWithUserDefinedPartitioner {
+
     public static void main(String[] args) {
         //配置信息
         Properties props = new Properties();
